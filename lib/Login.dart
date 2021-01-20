@@ -39,15 +39,19 @@ class _LoginState extends State<Login> {
   }
 
   void login() {
-    if (this.emailController.text == "shivu.mech25@gmail.com" &&
-        this.passwordController.text == "Password@123") {
       Navigator.push(
           context,
           MaterialPageRoute(
               builder: (context) => Profile(this.emailController.text)));
-    } else {
-      this._optionsDialogBox();
-    }
+    // if (this.emailController.text == "shivu.mech25@gmail.com" &&
+    //     this.passwordController.text == "Password@123") {
+    //   Navigator.push(
+    //       context,
+    //       MaterialPageRoute(
+    //           builder: (context) => Profile(this.emailController.text)));
+    // } else {
+    //   this._optionsDialogBox();
+    // }
   }
 
   void onNavigationToRegister() {

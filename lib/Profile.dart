@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:healthy_app/NewPage.dart';
 
 import 'BookSession.dart';
+import 'DoctorDetails.dart';
 import 'HomePage.dart';
 import 'Login.dart';
+import 'NewSession.dart';
 
 class Profile extends StatefulWidget {
   String email;
@@ -198,6 +200,9 @@ class _ProfileState extends State<Profile> {
                       ),
                     ),
                     contentPadding: const EdgeInsets.only(top: 20, left: 15),
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>DoctorDetails()));
+                    },
                   )
                 ],
               ),
@@ -232,6 +237,9 @@ class _ProfileState extends State<Profile> {
                       ),
                     ),
                     contentPadding: const EdgeInsets.only(top: 20, left: 15),
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>NewSession()));
+                    },
                   )
                 ],
               ),
