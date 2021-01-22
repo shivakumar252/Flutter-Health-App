@@ -53,8 +53,10 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(
             "BMI Calculator",
             textAlign: TextAlign.center,
+          style: TextStyle(color: Colors.white),
           ),
           backgroundColor: Color(0xFFFF1744),
+          centerTitle: true,
         ),
         body: Builder(builder: (context)=>Container(
           color: Colors.white,

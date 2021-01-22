@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import "package:shared_preferences/shared_preferences.dart";
 import 'Profile.dart';
 import 'Registration.dart';
 
@@ -11,16 +11,51 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  SharedPreferences loginData;
+  bool newUser;
+
+  @override
+  void initState() {
+    // super keyword is used to refer immediate parent class object. It is used to call properties and methods of the superclass
+    super.initState();
+    check_if_logged_in();
+  }
+
+  void check_if_logged_in() async {
+    loginData = await SharedPreferences.getInstance();
+    newUser = (loginData.getBool('login') ?? true);
+    print(newUser);
+    
+    if (newUser == false) {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => Profile(this.emailController.text)));
+    } else {
+      // Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));
+    }
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   Future<void> _optionsDialogBox() {
     return showDialog(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Error'),
+            title: Text('Alert'),
             backgroundColor: Colors.pink[100],
             content: SingleChildScrollView(
               child: ListBody(
-                children: <Widget>[Text('Invalid Email or Password!')],
+                children: <Widget>[
+                  Text('${this.emailController.text}'),
+                  Text('${this.passwordController.text}')
+                ],
               ),
             ),
             actions: <Widget>[
@@ -30,7 +65,12 @@ class _LoginState extends State<Login> {
                   style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () {
-                  Navigator.of(context).pop();
+                  // Navigator.of(context).pop();
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              Profile(this.emailController.text)));
                 },
               ),
             ],
@@ -39,19 +79,22 @@ class _LoginState extends State<Login> {
   }
 
   void login() {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => Profile(this.emailController.text)));
-    // if (this.emailController.text == "shivu.mech25@gmail.com" &&
-    //     this.passwordController.text == "Password@123") {
-    //   Navigator.push(
-    //       context,
-    //       MaterialPageRoute(
-    //           builder: (context) => Profile(this.emailController.text)));
-    // } else {
-    //   this._optionsDialogBox();
-    // }
+    // Navigator.push(
+    //     context,
+    //     MaterialPageRoute(
+    //         builder: (context) => Profile(this.emailController.text)));
+    if (this.emailController.text == "shivu.mech25@gmail.com" &&
+        this.passwordController.text == "Password@123") {
+      loginData.setBool('login', false);
+      loginData.setString('username', this.emailController.text);
+      // Navigator.push(
+      //     context,
+      //     MaterialPageRoute(
+      //         builder: (context) => Profile(this.emailController.text)));
+              this._optionsDialogBox();
+    } else {
+      // this._optionsDialogBox();
+    }
   }
 
   void onNavigationToRegister() {

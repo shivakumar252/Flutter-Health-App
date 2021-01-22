@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:healthy_app/NewPage.dart';
-
 import 'BookSession.dart';
 import 'DoctorDetails.dart';
 import 'HomePage.dart';
 import 'Login.dart';
 import 'NewSession.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'Registration.dart';
 
 class Profile extends StatefulWidget {
   String email;
@@ -17,14 +19,43 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   _ProfileState(this.email);
   String email;
+
+
+  // the code related to shared preferences//
+  SharedPreferences logindata;
+  String username;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    initial();
+  }
+  void initial() async {
+    logindata = await SharedPreferences.getInstance();
+    setState(() {
+      username = logindata.getString('username');
+     
+    });
+  }
+
+  removeValues() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+  //Remove String
+     prefs.remove("login");
+  }
+  //code related to shared preferences
   @override
   Widget build(BuildContext context) {
+   final media = MediaQuery.of(context).size;
+    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFFFF1744),
-        title: Text("Profile Screen"),
+        title: Text("Profile Screen",style: TextStyle(color: Colors.white),),
       ),
-      drawer: Drawer(
+      drawer: media.width < 600
+          ? 
+      Drawer(
         child: ListView(children: <Widget>[
           DrawerHeader(
             margin: EdgeInsets.zero,
@@ -61,7 +92,7 @@ class _ProfileState extends State<Profile> {
                   color: Colors.blueAccent,
                   fontWeight: FontWeight.bold),
             ),
-            accountEmail: Text(this.email,
+            accountEmail: Text('$username',
                 style: TextStyle(
                     fontSize: 14.0,
                     color: Colors.black,
@@ -120,12 +151,15 @@ class _ProfileState extends State<Profile> {
               color: Colors.indigoAccent,
             ),
             onTap: () {
+              removeValues();
               Navigator.push(
                   context, MaterialPageRoute(builder: (context) => Login()));
             },
+            
           ),
         ]),
-      ),
+      ):
+      null,
       body:Container(
         child:ListTile(
           title:Text("Hello"),
