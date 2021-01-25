@@ -43,7 +43,7 @@ return showDialog(context: context,
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Details Page",style: TextStyle(fontWeight:FontWeight.bold,fontSize:20.0),),
+        title: Text("Details Page",style: TextStyle(fontWeight:FontWeight.bold,fontSize:20.0,color: Colors.white),),
         backgroundColor: Color(0xFFFF1744),
       ),
       body:Container(

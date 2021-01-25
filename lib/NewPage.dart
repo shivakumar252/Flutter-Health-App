@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
+import 'DoctorDetails.dart';
+
 class NewPage extends StatefulWidget {
   @override
   _NewPageState createState() => _NewPageState();
@@ -90,7 +92,7 @@ class _NewPageState extends State<NewPage> {
                       width: 200,
                       child:    RaisedButton.icon(
                       onPressed: () {
-                       
+                       Navigator.push(context, MaterialPageRoute(builder: (context)=>DoctorDetails()));
                       },
                       shape: RoundedRectangleBorder(
                           borderRadius:

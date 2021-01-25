@@ -17,7 +17,7 @@ class _BookSessionState extends State<BookSession> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar:AppBar(
-          title: Text("Book Session"),
+          title: Text("Book Session",style: TextStyle(color: Colors.white),),
           backgroundColor:Color(0xFFFF1744),
           ),
           body: ListView(
@@ -52,7 +52,7 @@ class _BookSessionState extends State<BookSession> {
                onPressed:(){
                  detailsPage("https://content1.getnarrativeapp.com/68f6039f-a2f9-4e15-9b91-4f7cebe2a378/img_ref/3bd566cf-39ff-45fd-bc66-7cbe071da05f/Kim%20B%20-117_professional_yoga_photographer_photos_photography_750.jpg");
                },
-                  child: Text("Meditation",style: TextStyle(color:Colors.black,fontSize:14.0,fontWeight:FontWeight.bold),),
+                  child: Text("Excercise",style: TextStyle(color:Colors.black,fontSize:14.0,fontWeight:FontWeight.bold),),
                ),
              Image.network("https://i.pinimg.com/originals/c5/01/8c/c5018c083f2ab4e94d353253db4a3439.gif"),
               RaisedButton(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthy_app/Aboutus.dart';
 import 'package:healthy_app/NewPage.dart';
 import 'BookSession.dart';
 import 'DoctorDetails.dart';
@@ -107,7 +108,7 @@ class _ProfileState extends State<Profile> {
           //   accountEmail: Text("Skycliffit@gmail.com")),
           ListTile(
             title: Text(
-              "Home",
+              "Your BMI",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 18.0,
@@ -124,7 +125,7 @@ class _ProfileState extends State<Profile> {
           ),
           ListTile(
               title: Text(
-                "Your BMI",
+                "Book Session",
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18.0,
@@ -138,6 +139,16 @@ class _ProfileState extends State<Profile> {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => BookSession()));
               }),
+                  ListTile(
+            title: Text("About Us",style: TextStyle(color:Colors.black,fontSize: 18.0,fontWeight: FontWeight.bold),),
+            leading: Icon(
+              Icons.mail,
+              color: Colors.indigoAccent
+              ),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>AboutPage()));
+              },
+              ),
           ListTile(
             title: Text(
               "Log Out",
@@ -157,6 +168,7 @@ class _ProfileState extends State<Profile> {
             },
             
           ),
+      
         ]),
       ):
       null,
@@ -311,7 +323,8 @@ class _ProfileState extends State<Profile> {
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>(NewPage())));
                     },
-                  )
+                  ),
+
                 ],
               ),
             ),

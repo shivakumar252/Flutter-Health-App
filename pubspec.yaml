@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.0
   shared_preferences: ^0.5.12+4
   flutter_custom_clippers: ^1.1.2
+  url_launcher: ^5.7.10
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -51,6 +52,7 @@ flutter:
     - assets/skycliff-it-pvt-ltd-mahalakshmipuram-layout-bangalore-software-companies-8hb7hnuter.jpg
     - assets/header_background.png
     - assets/624111.jpg
+    - assets/hand-changes-word-health-to-wealth-background-187108035-removebg-preview.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
