@@ -5,7 +5,10 @@ import 'Registration.dart';
 
 class Login extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _LoginState createState() {
+    print('1.createState()');
+    return _LoginState();
+  }
 }
 
 class _LoginState extends State<Login> {
@@ -13,9 +16,16 @@ class _LoginState extends State<Login> {
   TextEditingController passwordController = TextEditingController();
   SharedPreferences loginData;
   bool newUser;
+  bool _isHidden = true;
+  void _togglePasswordView() {
+    setState(() {
+      _isHidden = !_isHidden;
+    });
+  }
 
   @override
   void initState() {
+    print('2.initState()');
     // super keyword is used to refer immediate parent class object. It is used to call properties and methods of the superclass
     super.initState();
     check_if_logged_in();
@@ -24,8 +34,8 @@ class _LoginState extends State<Login> {
   void check_if_logged_in() async {
     loginData = await SharedPreferences.getInstance();
     newUser = (loginData.getBool('login') ?? true);
-    print(newUser);
-    
+    // print(newUser);
+    print('4 method');
     if (newUser == false) {
       Navigator.push(
           context,
@@ -41,6 +51,7 @@ class _LoginState extends State<Login> {
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
+    print('5.dispose');
   }
 
   Future<void> _optionsDialogBox() {
@@ -91,7 +102,7 @@ class _LoginState extends State<Login> {
       //     context,
       //     MaterialPageRoute(
       //         builder: (context) => Profile(this.emailController.text)));
-              this._optionsDialogBox();
+      this._optionsDialogBox();
     } else {
       // this._optionsDialogBox();
     }
@@ -104,6 +115,7 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    print('3.build');
     return Scaffold(
       body: Builder(
         builder: (context) => Container(
@@ -153,7 +165,7 @@ class _LoginState extends State<Login> {
                       ),
                       title: new TextField(
                         decoration: InputDecoration(hintText: "Enter  Email"),
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.black),
                         onChanged: (password) {
                           print('');
                         },
@@ -165,16 +177,22 @@ class _LoginState extends State<Login> {
                         Icons.enhanced_encryption,
                         color: Colors.black,
                       ),
-                      trailing: Icon(
-                        Icons.remove_red_eye,
-                        color: Colors.white,
+                      trailing: IconButton(
+                        icon: Icon(
+                          _isHidden ? Icons.visibility : Icons.visibility_off,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          // Update the state i.e. toogle the state of passwordVisible variable
+                          _togglePasswordView();
+                        },
                       ),
                       title: new TextField(
                         decoration: InputDecoration(
                           hintText: "Enter  Password",
                         ),
-                        style: TextStyle(color: Colors.white),
-                        obscureText: true,
+                        style: TextStyle(color: Colors.black),
+                        obscureText: _isHidden,
                         onChanged: (password) {
                           print('');
                         },

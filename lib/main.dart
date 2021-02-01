@@ -4,7 +4,6 @@ import 'BookSession.dart';
 import 'Login.dart';
 import 'Profile.dart';
 
-
 void main() {
   runApp(MyApp());
 }
@@ -17,11 +16,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-     hintColor: Colors.black,
+          hintColor: Colors.black,
           primaryColor: Colors.orangeAccent,
           canvasColor: Colors.white),
       home: Login(),
     );
   }
 }
-

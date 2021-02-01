@@ -247,66 +247,99 @@ class _AboutDoctorState extends State<AboutDoctor> {
                         Column(
                           children: <Widget>[
                             SizedBox(
-                              height: 200, // constrain height
+                              height: 300, // constrain height
                               child: ListView(
                                 children: [
                                   Container(
-                                     decoration: BoxDecoration(
-                                        color: Colors.grey,
-                                        borderRadius: BorderRadius.only(
-                                            bottomRight: Radius.circular(25),
-                                            topRight: Radius.circular(25),
-                                            bottomLeft: Radius.circular(25),
-                                            topLeft: Radius.circular(25)
-                                            ),
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey,
+                                      borderRadius: BorderRadius.only(
+                                          bottomRight: Radius.circular(25),
+                                          topRight: Radius.circular(25),
+                                          bottomLeft: Radius.circular(25),
+                                          topLeft: Radius.circular(25)),
+                                    ),
+                                    child: ListTile(
+                                      title: Text(
+                                        "Consultation",
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 20.0,
+                                            fontWeight: FontWeight.bold),
                                       ),
-                                       
-                                       child: ListTile(
-                                          title: Text(
-                                            "Consultation",
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 20.0,
-                                                fontWeight: FontWeight.bold),
+                                      subtitle: Text("Sunday-9am-11am",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 14.0,
+                                              fontWeight: FontWeight.w800)),
+                                      leading: ClipRRect(
+                                        // borderRadius:
+                                        //     BorderRadius.all(Radius.circular(100)),
+                                        child: Container(
+                                          // height: 40,
+                                          // width: 40,
+                                          decoration: BoxDecoration(
+                                            color: Theme.of(context)
+                                                .backgroundColor,
                                           ),
-                                          subtitle: Text("Sunday-9am-11am",
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 14.0,
-                                                  fontWeight: FontWeight.w800)),
-                                          leading: 
-                                          ClipRRect(
-                                            // borderRadius:
-                                            //     BorderRadius.all(Radius.circular(100)),
-                                            child: Container(
-                                              // height: 40,
-                                              // width: 40,
-                                              decoration: BoxDecoration(
-                                                color: Theme.of(context)
-                                                    .backgroundColor,
-                                              ),
-                                              child: Image.network(
-                                                  "https://cdn5.vectorstock.com/i/1000x1000/18/74/april-25-calendar-icon-flat-vector-11871874.jpg"),
-                                            ),
-                                          ),
-                                          trailing:
-                                              Icon(Icons.navigate_next_sharp),
-                                          onTap: () {
-                                            // Navigator.push(
-                                            //     context,
-                                            //     MaterialPageRoute(
-                                            //         builder: (context) =>
-                                            //             AboutDoctor()));
-                                          },
-                                       
+                                          child: Image.network(
+                                              "https://cdn5.vectorstock.com/i/1000x1000/18/74/april-25-calendar-icon-flat-vector-11871874.jpg"),
+                                        ),
+                                      ),
+                                      trailing: Icon(Icons.navigate_next_sharp),
+                                      onTap: () {
+                                        // Navigator.push(
+                                        //     context,
+                                        //     MaterialPageRoute(
+                                        //         builder: (context) =>
+                                        //             AboutDoctor()));
+                                      },
                                     ),
                                   ),
+                                  Container(height: 10),
                                   Container(
-                                    height:10
+                                    decoration: BoxDecoration(
+                                      color: Colors.green[50],
+                                      borderRadius: BorderRadius.only(
+                                          bottomRight: Radius.circular(25),
+                                          topRight: Radius.circular(25),
+                                          bottomLeft: Radius.circular(25),
+                                          topLeft: Radius.circular(25)),
+                                    ),
+                                    child: ListTile(
+                                      title: Text(
+                                        "Consultation",
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 20.0,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      subtitle: Text("Monday-9am-11am",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 14.0,
+                                              fontWeight: FontWeight.w800)),
+                                      leading: ClipRRect(
+                                        // borderRadius:
+                                        //     BorderRadius.all(Radius.circular(100)),
+                                        child: Container(
+                                          // height: 40,
+                                          // width: 40,
+                                          decoration: BoxDecoration(
+                                            color: Theme.of(context)
+                                                .backgroundColor,
+                                          ),
+                                          child: Image.network(
+                                              "https://image.shutterstock.com/image-vector/april-26-calendar-iconvector-illustrationflat-260nw-522172288.jpg"),
+                                        ),
+                                      ),
+                                      trailing: Icon(Icons.navigate_next_sharp),
+                                    ),
                                   ),
+                                  Container(height: 10),
                                   Container(
                                       decoration: BoxDecoration(
-                                        color: Colors.green[50],
+                                        color: Colors.orange[50],
                                         borderRadius: BorderRadius.only(
                                             bottomRight: Radius.circular(25),
                                             topRight: Radius.circular(25),
@@ -321,7 +354,7 @@ class _AboutDoctorState extends State<AboutDoctor> {
                                               fontSize: 20.0,
                                               fontWeight: FontWeight.bold),
                                         ),
-                                        subtitle: Text("Monday-9am-11am",
+                                        subtitle: Text("Tuesday-9am-11am",
                                             style: TextStyle(
                                                 color: Colors.black,
                                                 fontSize: 14.0,
@@ -337,20 +370,17 @@ class _AboutDoctorState extends State<AboutDoctor> {
                                                   .backgroundColor,
                                             ),
                                             child: Image.network(
-                                                "https://image.shutterstock.com/image-vector/april-26-calendar-iconvector-illustrationflat-260nw-522172288.jpg"),
+                                                "https://c8.alamy.com/comp/H9NDYN/april-27-isometric-calendar-icon-with-shadowvector-illustrationflat-H9NDYN.jpg"),
                                           ),
                                         ),
                                         trailing:
                                             Icon(Icons.navigate_next_sharp),
-                                      ),
-                                  
-                                    
-                                      ),
-                                       Container(
-                                    height:10
+                                      )),
+                                  Container(
+                                    height: 10,
                                   ),
                                   Container(
-                                  decoration: BoxDecoration(
+                                      decoration: BoxDecoration(
                                         color: Colors.orange[50],
                                         borderRadius: BorderRadius.only(
                                             bottomRight: Radius.circular(25),
@@ -358,38 +388,36 @@ class _AboutDoctorState extends State<AboutDoctor> {
                                             bottomLeft: Radius.circular(25),
                                             topLeft: Radius.circular(25)),
                                       ),
-                                       child: ListTile(
-                                          title: Text(
-                                            "Consultation",
+                                      child: ListTile(
+                                        title: Text(
+                                          "Consultation",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 20.0,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        subtitle: Text("Tuesday-9am-11am",
                                             style: TextStyle(
                                                 color: Colors.black,
-                                                fontSize: 20.0,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          subtitle: Text("Tuesday-9am-11am",
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 14.0,
-                                                  fontWeight: FontWeight.w800)),
-                                          leading: ClipRRect(
-                                            // borderRadius:
-                                            //     BorderRadius.all(Radius.circular(100)),
-                                            child: Container(
-                                              // height: 40,
-                                              // width: 40,
-                                              decoration: BoxDecoration(
-                                                color: Theme.of(context)
-                                                    .backgroundColor,
-                                              ),
-                                              child: Image.network(
-                                                  "https://c8.alamy.com/comp/H9NDYN/april-27-isometric-calendar-icon-with-shadowvector-illustrationflat-H9NDYN.jpg"),
+                                                fontSize: 14.0,
+                                                fontWeight: FontWeight.w800)),
+                                        leading: ClipRRect(
+                                          // borderRadius:
+                                          //     BorderRadius.all(Radius.circular(100)),
+                                          child: Container(
+                                            // height: 40,
+                                            // width: 40,
+                                            decoration: BoxDecoration(
+                                              color: Theme.of(context)
+                                                  .backgroundColor,
                                             ),
+                                            child: Image.network(
+                                                "https://c8.alamy.com/comp/H9NDYN/april-27-isometric-calendar-icon-with-shadowvector-illustrationflat-H9NDYN.jpg"),
                                           ),
-                                          trailing:
-                                              Icon(Icons.navigate_next_sharp),
-                                        )
-                                     
-                                  ),
+                                        ),
+                                        trailing:
+                                            Icon(Icons.navigate_next_sharp),
+                                      )),
                                 ],
                               ),
                             )

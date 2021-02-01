@@ -20,7 +20,7 @@ class _NewPageState extends State<NewPage> {
 //           painter: CurvePainter(),
 //         ),
 //     ),
- 
+
 //     );
     return Scaffold(
         backgroundColor: Colors.white,
@@ -57,11 +57,18 @@ class _NewPageState extends State<NewPage> {
                       child: Column(
                         children: <Widget>[
                           Container(
-                            child:Text("Choose the doctors you want",style:TextStyle(fontSize: 35.0,fontWeight:FontWeight.bold,color:Colors.black))
-                          ),
-                           Container(
-                            child:Text("you can choose your favourite doctors here",style:TextStyle(fontSize: 16.0,fontWeight:FontWeight.bold,color:Colors.black))
-                          ),
+                              child: Text("Choose the doctors you want",
+                                  style: TextStyle(
+                                      fontSize: 35.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black))),
+                          Container(
+                              child: Text(
+                                  "you can choose your favourite doctors here",
+                                  style: TextStyle(
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black))),
                           // Container(
                           //   padding: EdgeInsets.all(8.0),
                           //   child: TextField(
@@ -81,36 +88,39 @@ class _NewPageState extends State<NewPage> {
                           //   ),
                           // ),
                           SizedBox(
-                           height: 40,
+                            height: 40,
                           )
                         ],
                       ),
                     ),
-                  
+
                     SizedBox(
                       height: 50,
                       width: 200,
-                      child:    RaisedButton.icon(
-                      onPressed: () {
-                       Navigator.push(context, MaterialPageRoute(builder: (context)=>DoctorDetails()));
-                      },
-                      shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(10.0))),
-                      label: Text(
-                        'Get Started',
-                        style: TextStyle(color: Colors.white,fontSize: 18.0),
+                      child: RaisedButton.icon(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DoctorDetails()));
+                        },
+                        shape: RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10.0))),
+                        label: Text(
+                          'Get Started',
+                          style: TextStyle(color: Colors.white, fontSize: 18.0),
+                        ),
+                        icon: Icon(
+                          Icons.navigation_sharp,
+                          color: Colors.white,
+                        ),
+                        textColor: Colors.white,
+                        splashColor: Colors.red,
+                        color: Colors.redAccent,
                       ),
-                      icon: Icon(
-                        Icons.navigation_sharp,
-                        color: Colors.white,
-                      ),
-                      textColor: Colors.white,
-                      splashColor: Colors.red,
-                      color: Colors.redAccent,
                     ),
-                    ),
-                 
+
                     // Container(
                     //   height: 50,
                     //   decoration: BoxDecoration(
@@ -162,11 +172,8 @@ class _NewPageState extends State<NewPage> {
                     // )
                   ],
                 ))
-          ]
-          )
-          ),
-        )
-        );
+          ])),
+        ));
   }
 }
 
